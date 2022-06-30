@@ -1,19 +1,14 @@
 <template>
-  <div>
-   
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
-  methods:{
-    
-  }
+  methods: {},
 };
 </script>
+
 
