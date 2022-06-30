@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="wrap"></div>
 </template>
 
 <script>
@@ -10,6 +10,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style>
-</style>
