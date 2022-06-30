@@ -1,7 +1,15 @@
 <template>
   <div>
-    <p :class="{ active: arr }" class="box">我是p标签</p>
-    <button @click="checked">点击改变</button>
+    <ul>
+      <li
+        :class="{ active: index == temp }"
+        v-for="(item, index) in navs"
+        :key="item"
+        @click="addFn(index)"
+      >
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -9,22 +17,37 @@
 export default {
   data() {
     return {
-      arr: true,
+      navs: ["大学起点", "高中起点", "初中起点", "小学起点"],
+      temp: 0,
     };
   },
   methods: {
-    checked() {
-      this.arr = !this.arr;
+    addFn(index) {
+      this.temp = index;
     },
   },
 };
 </script>
 
 <style >
-.active {
-  color: red;
+ul {
+  list-style: none;
+  border-radius: 10px;
+  width: 400px;
+  overflow: hidden;
+  padding: 0;
 }
-.box {
-  border: 5px solid yellow;
+ul li {
+  float: left;
+  width: 100px;
+  height: 40px;
+  background-color: #ccc;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+li.active {
+  background-color: blue;
 }
 </style>
