@@ -8,7 +8,8 @@
           {{isShow?"收起":"展开"}}
         </span>
       </div>
-      <div class="container" v-show='isShow'>
+      <!-- <div class="container" v-show='isShow'> -->
+      <div class="container" v-if='isShow'>
         <p>寒雨连江夜入吴,</p>
         <p>平明送客楚山孤。</p>
         <p>洛阳亲友如相问，</p>

@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-  
+  <div>
+   
   </div>
 </template>
 
@@ -8,8 +8,12 @@
 export default {
   data() {
     return {
-     
-    }
+      
+    };
+  },
+  methods:{
+    
   }
-}
+};
 </script>
+
