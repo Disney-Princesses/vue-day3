@@ -1,7 +1,15 @@
 <template>
   <div>
-    <p :style="{ color: 'pink', fontSize: '60px' }">动态绑定style</p>
-    <p :style="{ color: temp, fontSize: navs + 'px' }">动态绑定style123</p>
+    <ul>
+      <li
+        :class="{ active: index == temp }"
+        v-for="(item, index) in navs"
+        :key="item"
+        @click="addFn(index)"
+      >
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -9,11 +17,15 @@
 export default {
   data() {
     return {
-      navs: 50,
-      temp: "yellow",
+      navs: ["大学起点", "高中起点", "初中起点", "小学起点"],
+      temp: 0,
     };
   },
-  methods: {},
+  methods: {
+    addFn(index) {
+      this.temp = index;
+    },
+  },
 };
 </script>
 
