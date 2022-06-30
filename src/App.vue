@@ -1,29 +1,16 @@
 <template>
-  <div>
-    <p>请选择你要购买的书籍</p>
-    <ul>
-      <li v-for="(item, index) in arr" :key="index">
-        {{ item.name }} <button @click="numFn(index)">买书</button>
-      </li>
-    </ul>
-    <table width="500" cellspacing="0">
-      <tr>
-        <th>序号</th>
-        <th>书名</th>
-        <th>单价</th>
-        <th>数量</th>
-        <th>合计</th>
-      </tr>
-
-      <tr v-for="(item, index) in arr" :key="index">
-        <td>{{ index + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.count }}</td>
-        <td>{{ item.price * item.count }}</td>
-      </tr>
-    </table>
-    <p>总价格为:{{ dataAll }}</p>
+  <div id="app">
+    <div v-for="(item, index) in arr" :key="item" :class="{ box: true }">
+      <input
+        type="checkbox"
+        name=""
+        :id="index"
+        :value="item"
+        v-model="numAll"
+      />
+      <span> {{ item }} </span>
+    </div>
+    <div>总价格为:{{ dataAll }}</div>
   </div>
 </template>
 
@@ -31,42 +18,14 @@
 export default {
   data() {
     return {
-      arr: [
-        {
-          name: "水浒传",
-          price: 107,
-          count: 0,
-        },
-        {
-          name: "西游记",
-          price: 192,
-          count: 0,
-        },
-        {
-          name: "三国演义",
-          price: 219,
-          count: 0,
-        },
-        {
-          name: "红楼梦",
-          price: 178,
-          count: 0,
-        },
-      ],
-      priceAll: 0,
-      // dataAll: 0,
+      arr: [9, 15, 19, 25, 29, 31, 48, 57, 62, 79, 87],
+      numAll: [],
     };
-  },
-  methods: {
-    numFn(index) {
-      this.$set(this.arr[index], "count", this.arr[index].count + 1);
-    },
   },
   computed: {
     dataAll() {
-      return this.arr.reduce((pre, item) => {
-        // console.log(item, pre);
-        return (pre += item.count * item.price);
+      return this.numAll.reduce((pre, item) => {
+        return (pre += item);
       }, 0);
     },
   },
@@ -74,9 +33,20 @@ export default {
 </script>
 
 <style>
-table tr th,
-table tr td {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
+html {
+  font-size: 20px;
+}
+.box {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  /* padding: 0, 10px; */
+}
+input {
+  width: 15px;
+  height: 15px;
+}
+#app {
+  margin: 100px 200px;
 }
 </style>
